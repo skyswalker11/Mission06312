@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Task"] = "Task Application";
+}
+
+@model Mission0631.Models.EnterTaskSubmission
+
+
+
+<div>
+    <form method="post">
+        <label asp-for="Quadrant">Quadrant:</label>
+
+            <select asp-for="Quadrant">
+                <option value="">Select a Quadrant</option>
+                <option value="Important & Urgent">Important & Urgent</option>
+                <option value="Important & Non-Urgent">Important & Non-Urgent</option>
+                <option value="Unimportant & Urgent">Unimportant & Urgent</option>
+                <option value="Unimportant & Non-Urgent">Unimportant & Non-Urgent</option>
+
+            </select>
+            <br />
+            <br />
+
+        <label asp-for="Task">Task:</label>
+        <input asp-for="Task" /><br /><br />
+
+
+        <button type="submit">Submit Information</button>
+        <div asp-validation-summary="All">
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "TaskForm";
+}
+
+@*name of model probably needs to be changed*@
+@model Mission0631.Models.EnterTaskSubmission
+
+<h1>Fill Out Form to Add a Task</h1>
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="Task">Task</label>
+        <input required asp-for="Task" /><br />
+
+        <label asp-for="DueDate">DueDate</label>
+        <input required asp-for="DueDate" /><br />
+
+        <label asp-for="Quadrant">Quadrant:</label>
+        <select asp-for="Quadrant">
+
+            <option value="">Select a Quadrant</option>
+            <option value="Important & Urgent">Important & Urgent</option>
+            <option value="Important & Non-Urgent">Important & Non-Urgent</option>
+            <option value="Unimportant & Urgent">Unimportant & Urgent</option>
+            <option value="Unimportant & Non-Urgent">Unimportant & Non-Urgent</option>
+
+        </select>
+        <br />
+        <label asp-for="CategoryID">Category</label>
+        <select required asp-for="CategoryID">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+        </select><br />
+
+        <label asp-for="Completed">Completed</label>
+        <select asp-for="Completed">
+            <option value="true">Yes</option>
+            <option selected="selected" value="false">No</option>
+        </select><br />
+
+        <button type="submit">Submit Movie</button>
+    </form>
+</div>
+
